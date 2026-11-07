@@ -1,0 +1,428 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Apoooo ❤️</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Trebuchet MS', sans-serif;
+    background: linear-gradient(135deg, #ffb6d9, #c8a2ff, #ffc6e5);
+    min-height: 100vh;
+    color: #fff;
+    text-align: center;
+    overflow-x: hidden;
+}
+
+.screen {
+    min-height: 100vh;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 25px;
+}
+
+.screen.active {
+    display: flex;
+}
+
+h1 {
+    font-size: clamp(2rem, 7vw, 3.5rem);
+    margin-bottom: 20px;
+    text-shadow: 2px 3px 8px #b34c91;
+}
+
+p {
+    font-size: 19px;
+    line-height: 1.7;
+    max-width: 650px;
+}
+
+button {
+    border: none;
+    background: #ff368f;
+    color: white;
+    padding: 14px 28px;
+    border-radius: 30px;
+    font-size: 18px;
+    margin-top: 25px;
+    cursor: pointer;
+    box-shadow: 0 5px 15px #a83272;
+    transition: .3s;
+}
+
+button:hover {
+    transform: scale(1.08);
+    background: #e90072;
+}
+
+.date {
+    font-size: 20px;
+    margin: 15px;
+}
+
+/* FIRST SCREEN - CANDLES */
+
+.candles {
+    display: flex;
+    gap: 22px;
+    margin: 30px;
+}
+
+.candle {
+    width: 24px;
+    height: 100px;
+    background: linear-gradient(to right, #fff, #ff6fae);
+    border-radius: 8px;
+    position: relative;
+    cursor: pointer;
+}
+
+.flame {
+    position: absolute;
+    width: 20px;
+    height: 30px;
+    background: orange;
+    border-radius: 50% 50% 50% 0;
+    transform: rotate(-45deg);
+    top: -32px;
+    left: 2px;
+    box-shadow: 0 0 20px yellow;
+    animation: flicker .5s infinite alternate;
+}
+
+@keyframes flicker {
+    from { transform: rotate(-45deg) scale(1); }
+    to { transform: rotate(-45deg) scale(1.15); }
+}
+
+.candle.off .flame {
+    display: none;
+}
+
+/* GIFT */
+
+.gift {
+    font-size: 120px;
+    cursor: pointer;
+    animation: bounce 1s infinite alternate;
+}
+
+@keyframes bounce {
+    to { transform: translateY(-15px); }
+}
+
+.message {
+    background: rgba(255,255,255,.22);
+    padding: 25px;
+    border-radius: 20px;
+    max-width: 700px;
+    box-shadow: 0 5px 25px #a64e91;
+}
+
+/* CAKE */
+
+.cake {
+    position: relative;
+    width: 220px;
+    height: 150px;
+    margin: 35px;
+    cursor: pointer;
+}
+
+.cake-top {
+    height: 55px;
+    background: #fff0f5;
+    border-radius: 50%;
+    position: absolute;
+    width: 100%;
+    top: 0;
+    z-index: 2;
+    border: 5px solid #ff77ae;
+}
+
+.cake-body {
+    position: absolute;
+    top: 25px;
+    width: 100%;
+    height: 115px;
+    background: linear-gradient(#ff77ae, #e83e8c);
+    border-radius: 10px 10px 25px 25px;
+    border-bottom: 12px solid #fff0f5;
+}
+
+.cake-body::before {
+    content: "MARYAM ❤️";
+    position: absolute;
+    top: 50px;
+    width: 100%;
+    color: white;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.cake.cut .cake-body {
+    clip-path: polygon(0 0, 75% 0, 60% 45%, 75% 100%, 0 100%);
+}
+
+/* FINAL */
+
+.final-message {
+    background: rgba(255,255,255,.2);
+    border: 2px solid white;
+    border-radius: 25px;
+    padding: 30px;
+    max-width: 750px;
+    line-height: 2;
+    font-size: 19px;
+}
+
+.heart {
+    position: fixed;
+    bottom: -30px;
+    animation: float 6s linear infinite;
+    pointer-events: none;
+    z-index: -1;
+}
+
+@keyframes float {
+    to {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- SCREEN 1 -->
+
+<section class="screen active" id="screen1">
+
+    <h1>🎂 Happy Birthday Apoooo ❤️</h1>
+
+    <div class="date">12 December 2009 🌸</div>
+
+    <p>
+        Aaj ka din bohat special hai!
+        Pehle apni birthday candles ko blow karo.
+        Har candle par click karo ❤️
+    </p>
+
+    <div class="candles" id="candles">
+        <div class="candle"><div class="flame"></div></div>
+        <div class="candle"><div class="flame"></div></div>
+        <div class="candle"><div class="flame"></div></div>
+        <div class="candle"><div class="flame"></div></div>
+        <div class="candle"><div class="flame"></div></div>
+    </div>
+
+    <button id="surpriseBtn" style="display:none"
+        onclick="showScreen(2)">
+        🎁 SURPRISE
+    </button>
+
+</section>
+
+
+<!-- SCREEN 2 -->
+
+<section class="screen" id="screen2">
+
+    <h1>For My Special Apoooo ❤️</h1>
+
+    <p>Yeh gift sirf aap ke liye hai!</p>
+
+    <div class="gift" onclick="openGift()">🎁</div>
+
+    <div id="giftMessage" style="display:none">
+
+        <h1>HAPPY BIRTHDAY APOOOOO ❤️</h1>
+
+        <div class="message">
+            <p>
+                You are not just my Apoo,
+                you are a beautiful blessing in my life.
+                May your every dream come true.
+                Allah always keep you happy. ❤️
+            </p>
+        </div>
+
+        <button onclick="showScreen(3)">
+            🎂 See Your Cake
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- SCREEN 3 -->
+
+<section class="screen" id="screen3">
+
+    <h1>Special Cake For Maryam 🎂</h1>
+
+    <p>Ab cake cut karne ka time hai!</p>
+
+    <div class="cake" id="cake" onclick="cutCake()">
+        <div class="cake-top"></div>
+        <div class="cake-body"></div>
+    </div>
+
+    <p id="cakeText">Cake par click karo ❤️</p>
+
+    <button id="nextBtn" style="display:none"
+        onclick="showScreen(4)">
+        NEXT ❤️
+    </button>
+
+</section>
+
+
+<!-- SCREEN 4 -->
+
+<section class="screen" id="screen4">
+
+    <h1>Happy Birthday My Apoooo ❤️</h1>
+
+    <div class="final-message">
+
+        <h2>میری پیاری آپو کے نام ❤️</h2>
+
+        <p>
+            میری پیاری آپو! ❤️
+            <br><br>
+
+            آپ کو سالگرہ بہت بہت مبارک ہو۔
+            اللہ پاک آپ کی زندگی کو خوشیوں سے بھر دے،
+            آپ کے چہرے پر ہمیشہ مسکراہٹ رکھے
+            اور آپ کی ہر دعا قبول فرمائے۔
+            <br><br>
+
+            آپ میری زندگی کا بہت خاص حصہ ہیں۔
+            آپ کی ناراضگی بھی پیاری لگتی ہے
+            اور آپ کی مسکراہٹ میرے لیے بہت قیمتی ہے۔
+            <br><br>
+
+            میری دعا ہے کہ آپ ہمیشہ خوش رہیں،
+            کامیاب ہوں اور اللہ پاک آپ کو
+            دنیا و آخرت کی تمام خوشیاں عطا فرمائے۔
+            <br><br>
+
+            **Happy Birthday Apooooo!**
+            <br>
+            Love You So Much ❤️😘
+        </p>
+
+        <div class="date">12 December 2009 🌸</div>
+
+    </div>
+
+</section>
+
+
+<script>
+
+// SCREEN CHANGE
+
+function showScreen(number) {
+
+    document.querySelectorAll(".screen").forEach(screen => {
+        screen.classList.remove("active");
+    });
+
+    document.getElementById("screen" + number)
+        .classList.add("active");
+
+}
+
+
+// CANDLES
+
+const candles = document.querySelectorAll(".candle");
+
+candles.forEach(candle => {
+
+    candle.addEventListener("click", function() {
+
+        this.classList.add("off");
+
+        const remaining = document.querySelectorAll(
+            ".candle:not(.off)"
+        );
+
+        if (remaining.length === 0) {
+            document.getElementById("surpriseBtn")
+                .style.display = "inline-block";
+        }
+
+    });
+
+});
+
+
+// GIFT
+
+function openGift() {
+
+    document.getElementById("giftMessage")
+        .style.display = "block";
+
+}
+
+
+// CAKE
+
+function cutCake() {
+
+    document.getElementById("cake")
+        .classList.add("cut");
+
+    document.getElementById("cakeText")
+        .innerHTML = "Yayyy! Cake cut ho gaya! ❤️";
+
+    document.getElementById("nextBtn")
+        .style.display = "inline-block";
+
+}
+
+
+// FLOATING HEARTS
+
+function createHeart() {
+
+    const heart = document.createElement("div");
+
+    heart.className = "heart";
+    heart.innerHTML = "❤️";
+
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = (15 + Math.random() * 25) + "px";
+    heart.style.animationDuration = (4 + Math.random() * 4) + "s";
+
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+        heart.remove();
+    }, 8000);
+
+}
+
+setInterval(createHeart, 500);
+
+</script>
+
+</body>
+</html>
